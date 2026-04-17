@@ -15,6 +15,17 @@ GET /terms -> renders templates/terms.html.
 2. Create templates/terms.html with generic terms and conditions content appropriate for a personal expense tracking app.
 Include sections like: Acceptance of Terms , Use of Service , User Data, Limitations of Liability and changes to Terms.
 Extend base.html if it exists, otherwise match the style of landing.html
-2. In @templates/landing.html, update the "Terms and Conditions" footer link href from "#" to "/terms".
+3. In @templates/landing.html, update the "Terms and Conditions" footer link href from "#" to "/terms".
 
-commit
+git commit -m "landing : add terms and conditions page and route" 
+
+Do the same as you did for the Terms and Conditions page, but for Privacy Policy.
+
+1.Add a new route in [@app.py](http://app.py):
+GET /terms -> renders templates/terms.html.
+2. Create templates/terms.html with generic terms and conditions content appropriate for a personal expense tracking app.
+Include sections like: Data We collect, How We Use Your Data, Data Storage, Third Party Services, and Contact Us.
+Match the style of terms.html.
+3. In @templates/landing.html, update the "Privacy Policy" footer link href from "#" to "/privacy".
+4. Make sure the appearance look like the website's theme.
+
