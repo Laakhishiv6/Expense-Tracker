@@ -34,3 +34,18 @@ git commit -m "landing: add privacy policy page and route"
 I've attached a screenshot of teh updated Spendly hero section design.
 
 Modify only teh hero section in @template/landing.html and @static/css/landing.css to match this image exactly. Do not touch other part of the page.
+
+git commit -m "landing: redeign hero section to match mockup"  
+
+Add a model to @templates/landing.html that opens when the user clicks "See how it works"
+
+Requirements:
+
+- Clicking "See how it works" opens a modal overlay
+- Modal contains an embedded Youtube video (use any placeholder YouTube URL for now, I will replace it later)
+- Video should be playable inside the modal
+- Clicking the close button OR clicking outside the modal closes it- When the modal close button OR clicking outside the modal closes it.
+- When the modal closes, teh video must stop playing (not continue in background)
+- No page libraries or dependencies - vanilla JS onl, since we are not using any JS framework in this project.
+
+Do not modify any other part of the page.

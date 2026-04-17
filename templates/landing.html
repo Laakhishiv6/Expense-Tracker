@@ -21,7 +21,7 @@
         <div class="hero-divider">+</div>
         <div class="hero-actions">
             <a href="{{ url_for('register') }}" class="btn-primary">Create free account</a>
-            <a href="{{ url_for('login') }}" class="btn-primary">See how it works</a>
+            <a href="#" class="btn-primary" id="openVideoModal">See how it works</a>
         </div>
     </div>
     <div class="hero-visual">
@@ -72,6 +72,22 @@
     </div>
 </section>
 
+<div class="modal-overlay" id="videoModal" aria-hidden="true">
+    <div class="modal-box">
+        <button class="modal-close" id="modalClose" aria-label="Close video">&#x2715;</button>
+        <div class="modal-video-wrap">
+            <iframe
+                id="modalIframe"
+                src=""
+                data-src="https://www.youtube.com/embed/dQw4w9WgXcQ?enablejsapi=1"
+                title="How Spendly works"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen>
+            </iframe>
+        </div>
+    </div>
+</div>
+
 <section class="features">
     <div class="features-inner">
         <div class="feature-card">
@@ -99,5 +115,43 @@
         <a href="{{ url_for('register') }}" class="btn-primary">Create free account</a>
     </div>
 </section>
+
+<script>
+(function () {
+    var modal    = document.getElementById('videoModal');
+    var iframe   = document.getElementById('modalIframe');
+    var closeBtn = document.getElementById('modalClose');
+    var trigger  = document.getElementById('openVideoModal');
+
+    if (!modal || !iframe || !closeBtn || !trigger) return;
+
+    function openModal() {
+        iframe.setAttribute('src', iframe.getAttribute('data-src'));
+        modal.classList.add('modal-open');
+        modal.setAttribute('aria-hidden', 'false');
+    }
+
+    function closeModal() {
+        iframe.setAttribute('src', '');
+        modal.classList.remove('modal-open');
+        modal.setAttribute('aria-hidden', 'true');
+    }
+
+    trigger.addEventListener('click', function (e) {
+        e.preventDefault();
+        openModal();
+    });
+
+    closeBtn.addEventListener('click', closeModal);
+
+    modal.addEventListener('click', function (e) {
+        if (e.target === modal) closeModal();
+    });
+
+    document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') closeModal();
+    });
+}());
+</script>
 
 {% endblock %}
